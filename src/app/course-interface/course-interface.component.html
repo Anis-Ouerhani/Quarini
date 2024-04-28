@@ -1,0 +1,42 @@
+<app-sidenav-autosize-example></app-sidenav-autosize-example>
+
+<div class="course-interface">
+  <!-- Menu Container -->
+  <div class="menu-container">
+    <div class="menu">
+      <ul class="lesson-list">
+        <li *ngFor="let lesson of course.lessons" [class.active]="lesson === selectedLesson">
+          <a (click)="onSelectLesson(lesson)">{{ lesson.title }}</a>
+          <ul *ngIf="lesson === selectedLesson" class="chapter-list">
+            <li *ngFor="let chapter of lesson.chapters" [class.active]="chapter === selectedChapter">
+              <a (click)="onSelectChapter(chapter)">{{ chapter.title }}</a>
+            </li>
+            <li class="quiz-title" (click)="onSelectQuiz(lesson)"><a>Quiz</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Content Container -->
+  <div class="content-container">
+    <div class="content">
+      <div *ngIf="selectedChapter" class="chapter-container">
+        <h2>{{ selectedChapter.title }}</h2>
+        <p>{{ selectedChapter.description }}</p>
+      </div>
+      <div *ngIf="showQuiz && selectedLesson">
+        <h2>Quiz</h2>
+        <ul class="quiz-list">
+          <li *ngFor="let quiz of selectedLesson?.quizzes">
+            <p>{{ quiz.question }}</p>
+            <input type="text" [(ngModel)]="quiz.answer" placeholder="Your answer..." class="quiz-input form-control">
+          </li>
+        </ul>
+      </div>
+      <div *ngIf="selectedChapter && selectedChapter.videoLink" class="video-container-small">
+        <iframe width="100%" height="200px" [src]="selectedChapter.videoLink | safeUrl" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</div>

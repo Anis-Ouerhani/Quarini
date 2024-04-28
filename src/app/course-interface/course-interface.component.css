@@ -1,0 +1,101 @@
+.course-interface {
+    display: flex;
+    padding: 20px;
+  }
+  
+  .menu-container {
+    width: 200px;
+    border: 1px solid #222222;
+    margin-right: 20px;
+    padding: 40px;
+    box-shadow: 0px 0px 18px 3px rgba(0,0,0,0.4);
+    border-radius: 5px;
+    background-color: transparent;
+  }
+  
+  .content-container {
+    flex: 1;
+    border: 1px solid #222222;
+    margin-right: 20px;
+    padding: 20px;
+    box-shadow: 0px 0px 18px 3px rgba(0,0,0,0.4);
+    border-radius: 5px;
+    background-color: transparent;
+  }
+  
+  .menu .lesson-list .active,
+  .menu .chapter-list .active,
+  .menu .quiz-title {
+    font-weight: bold;
+  }
+  
+  .menu a {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    font-size: 18px;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .menu a:hover {
+    color: #007bff;
+  }
+  
+  .chapter-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .chapter-container h2 {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+  
+  .chapter-container p {
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+  }
+  
+  .video-container-small {
+    width: 100%;
+    max-width: 1000px; 
+    height: auto; 
+    padding-top: 56.25%; 
+    position: relative;
+  }
+  
+  .video-container-small iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .quiz-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .quiz-input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  

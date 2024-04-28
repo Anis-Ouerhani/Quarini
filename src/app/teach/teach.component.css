@@ -1,0 +1,273 @@
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    padding: 0 20px;
+    background-color: #ffe1c3;
+    box-shadow: 0px 0px 18px 3px rgba(0, 0, 0, 0.69);
+    position: relative;
+    z-index: 1;
+  }
+  
+  .logo {
+    color: black;
+    font-size: 27px;
+    font-weight: bolder;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.3s;
+  }
+  
+  .logo:hover {
+    transform: scale(0.9);
+  }
+
+  .container {
+    position: relative;
+    text-align: center;
+    box-shadow: 0px 0px 18px 3px rgba(0, 0, 0, 0.69);
+    height: 75%;
+  }
+  
+  .container img {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .text-container {
+    position: absolute;
+    top: 50%;
+    left: 20px; /* Adjust left position */
+    transform: translateY(-50%);
+    text-align: start; /* Align text to the start */
+  }
+
+  .text-container h1{
+    font-weight: 900;
+  }
+
+  .text-container p{
+    font-size: 20px;
+  }
+  
+  .container button {
+    margin-top: 20px;
+    background-color: transparent;
+    border: 1px solid black;
+    padding: 10px 30px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 8px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.5s;
+  }
+
+  .container button:hover {
+    transition : 519ms;
+    padding: 10px 37px;
+    transform : translateY(-0px);
+    background-color: #ffe1c3;;
+    color: #000000;
+    border: 1px solid black;
+  }
+
+  .whycont {
+    padding: 80px;
+    background-color: #ffe1c3;
+  }
+  
+  .next-area-title {
+    text-align: center;
+    margin-bottom: 70px;
+  }
+  
+  .next-area-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* Center text content */
+  }
+  
+  .left-section,
+  .center-section,
+  .right-section {
+    width: 30%; /* Adjust as needed */
+    text-align: center;
+    margin: 0 40px;
+  }
+
+  .left-section i,
+  .center-section i,
+  .right-section i{
+    font-size: 70px;
+    margin-bottom: 30px;
+  }
+  
+  .section-title {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .section-text {
+    font-size: 16px;
+  }
+  
+  .tutorial-area-container {
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px;
+    box-shadow: 0px 0px 18px 3px rgba(0,0,0,0.69);
+  }
+  
+  .tutorial-area-title {
+    font-size: 32px;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  
+  .tutorial-steps {
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .tutorial-step {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .step-title {
+    display: inline-block;
+  }
+  
+  .tutorial-step .step-btn {
+    background-color: transparent;
+    border: none;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+
+  .tutorial-step .step-btn:hover{
+    transform: scale(1.1);
+  }
+
+  .tutorial-step p a{
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  .tutorial-step p a:hover{
+    text-decoration: underline;
+    font-weight: 800;
+    cursor: pointer;
+  }
+  
+  .step-description {
+    display: none;
+  }
+
+  .reviews-container {
+    background-color: #ffe1c3;
+    text-align: center; 
+    padding: 100px; /* Initial padding for larger screens */
+    box-shadow: 0px 0px 18px 3px rgba(0,0,0,0.69);
+  }
+  
+  .review {
+    display: flex;
+    align-items: center;
+    max-width: 600px; 
+    margin: 0 auto;
+  }
+  
+  .instructor-photo {
+    width: 50%;
+    height: 50%;
+    margin-right: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 18px 3px rgba(0,0,0,0.69);
+  }
+  
+  .review-content {
+    flex: 1;
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .review-text {
+    text-align: start;
+    font-size: 20px;
+    margin: 0; /* Reset margin */
+  }
+  
+  .instructor-name {
+    font-weight: bold;
+  }
+  
+  .next-review-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #000;
+    font-size: 24px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-left: 20px;
+    background-color: transparent;
+    transition: transform 0.3s;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 8px;
+  }
+  
+  .next-review-btn:hover {
+    transform: scale(1.1);
+    background-color: #000;
+    color: #ffe1c3;
+  }
+  
+  /* Media Queries */
+  @media screen and (max-width: 768px) {
+    .reviews-container {
+      padding: 50px; /* Adjusted padding for smaller screens */
+    }
+
+    .instructor-photo {
+      width: 30%;
+      height: 30%;
+    }
+    
+    .review-text {
+      font-size: 10px; /* Adjusted font size for smaller screens */
+    }
+
+    .next-review-btn {
+      width: 20px;
+      height: 20px;
+      border: 1px solid black;
+      font-size: smaller;
+    }
+  }
+
+  
+  
+  /* Media Query for smaller screens */
+  @media screen and (max-width: 768px) {
+    .tutorial-steps {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
+
+/* Media Query for smaller screens */
+@media screen and (max-width: 768px) {
+  .navbar {
+    justify-content: flex-start; /* Align logo to the left */
+  }
+}

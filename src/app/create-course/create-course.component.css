@@ -1,0 +1,75 @@
+.cont{
+    padding: 60px;
+}
+
+.create-course-box {
+    display: block;
+    background-color: #f0f0f0;
+    width: 90%; /* Adjusted width for responsiveness */
+    max-width: 800px; /* Limit maximum width */
+    margin: 0px auto;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+
+.create-course-box h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+    margin-right: 1.5rem;
+}
+
+.form-control {
+    width: calc(100% - 20px); /* Adjusted width */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+
+.input-group .form-control {
+    width: 70%; /* Adjust the width as needed */
+  }
+  
+  /* Adjust the width of the select dropdown */
+  .input-group .form-control + .form-control {
+    width: 30%; /* Adjust the width as needed */
+  }
+
+.btn {
+    width: 40%;
+    height: 45px;
+    margin-top: 1rem;
+    background: #333;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+    cursor: pointer;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 600;
+    transition: transform 0.3s;
+}
+
+.btn-primary {
+    background-color: #333;
+    width: 100%;
+    color: #fff;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: #fff;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+    transform: scale(0.94);
+}

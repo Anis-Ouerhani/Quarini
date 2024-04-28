@@ -1,0 +1,60 @@
+<app-sidenav-autosize-example></app-sidenav-autosize-example>
+<div class="container">
+  <div class="dashboard-container">
+    <div class="dashboard-card">
+      <h2>Courses</h2>
+      <p>{{ courseCount }}</p>
+    </div>
+    <div class="dashboard-card">
+      <h2>Students</h2>
+      <p>{{ studentCount }}</p>
+    </div>
+  </div>
+
+  <div class="todo-list-container">
+    <div class="todo-list">
+      <h2>To Do List</h2>
+      <ul>
+        <li *ngFor="let todo of todos; let i = index">
+          <input type="checkbox" [(ngModel)]="todo.completed"> {{ todo.task }}
+          <button (click)="deleteTodo(i)">Delete</button>
+        </li>
+      </ul>
+      <input type="text" placeholder="Add a new task" [(ngModel)]="newTodo">
+      <button (click)="addTodo()">Add</button>
+    </div>
+  </div>
+
+  <div class="courses-table">
+    <h2>Your Courses</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="img">Image</th>
+          <th>Name</th>
+          <th>Published In</th>
+          <th>Students Enrolled</th>
+          <th>Rate</th> <!-- Added Rate column -->
+          <th>Edit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let course of courses">
+          <td><img [src]="course.image" alt="Course Image"></td>
+          <td>{{ course.courseTitle }}</td>
+          <td>{{ course.publishedDate }}</td>
+          <td>{{ course.studentsEnrolled }}</td>
+          <td class="rate">
+            <span [innerHTML]="displayStars(calculateAverageRating(course))"></span>
+          </td>
+          <td><button (click)="navigateToUpdateCourse()">Click</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="create-course">
+    <button class="btn" (click)="addCourse()">Add a course</button>
+  </div>
+
+</div>

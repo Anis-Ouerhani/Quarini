@@ -1,0 +1,67 @@
+<!-- fview.component.html -->
+<app-navhome></app-navhome>
+  <div class="fview-container">
+  <!-- First section with background image -->
+    <div class="fview-background">
+      <img src="assets/bckg.jpg" alt="Background Image">
+    </div>
+    <div class="fview-content">
+      <h1>Elevate your potential with Quarini</h1>
+      <p>At <b>Quarini</b>, we are committed to empowering learners with the knowledge<br>and skills they need to succeed in today's fast-paced world. <b>Join us</b> on our<br>journey to redefine <b>online education</b> and unlock the potential of every learner.</p>
+      <button mat-raised-button color="primary">Learn More</button>
+    </div>
+  </div>
+
+
+  <!-- Second section with statistics -->
+  <div class="statistics-container">
+    <div class="statistic-box">
+      <i class='bx bxs-user'></i>
+      <div class="statistic-info">
+        <h2>Learners</h2>
+        <p class="count">{{ learnerCount }}</p>
+      </div>
+    </div>
+    <div class="statistic-box">
+      <i class='bx bx-user'></i>
+      <div class="statistic-info">
+        <h2>Instructors</h2>
+        <p class="count">{{ instructorCount }}</p>
+      </div>
+    </div>
+    <div class="statistic-box">
+      <i class='bx bx-book'></i>
+      <div class="statistic-info">
+        <h2>Courses</h2>
+        <p class="count">{{ courseCount }}</p>
+      </div>
+    </div>
+    <div class="statistic-box">
+      <i class='bx bx-category'></i>
+      <div class="statistic-info">
+        <h2>Categories</h2>
+        <p class="count">{{ categoryCount }}</p>
+      </div>
+    </div>
+  </div>
+
+  <app-crslist></app-crslist>
+  
+  <div class="category-container">
+    <div class="category" *ngFor="let category of categories">
+      <i class="bx" [class]="category.icon"></i>
+      <span class="category-name">{{ category.name }}</span>
+    </div>
+  </div>
+  
+  <div class="reviews-container">
+    <div class="review">
+      <img [src]="reviews[currentReviewIndex].instructorPhoto" alt="Instructor Photo" class="instructor-photo">
+      <div class="review-content">
+        <p class="review-text">{{ reviews[currentReviewIndex].reviewText }} <br> - <span class="instructor-name">{{ reviews[currentReviewIndex].instructorName }}</span></p>
+        <button class="next-review-btn" (click)="nextReview()">></button>
+      </div>
+    </div>
+  </div>
+
+  <app-footer></app-footer>

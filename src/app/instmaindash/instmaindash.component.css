@@ -1,0 +1,165 @@
+.container{
+  padding: 100px;
+}
+
+.dashboard-container {
+  margin-bottom: 70px;
+  display: flex;
+  justify-content: center;
+
+}
+
+.dashboard-card {
+  width: 200px;
+  height: 150px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 20px; /* Adjusted margin */
+  transition: transform 0.3s ease-in-out;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.dashboard-card:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.dashboard-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.dashboard-card p {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+
+.todo-list-container {
+  width: calc(100% - 440px); /* Total width - sum of widths of two cards and their margins */
+  margin: 0 auto; /* Increase space between to-do list and cards */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.todo-list {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  text-align: center; /* Center the content horizontally */
+  margin-bottom: 60px; /* Increase space between to-do list and table */
+}
+
+.todo-list h2 {
+  margin-bottom: 10px;
+}
+
+.todo-list ul {
+  list-style-type: none;
+  margin-bottom: 10px;
+}
+
+.todo-list li {
+  margin-bottom: 5px;
+}
+
+.todo-list input[type="text"],
+.todo-list button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  margin-right: 5px;
+}
+
+.todo-list input[type="text"] {
+  width: calc(70% - 20px);
+}
+
+.todo-list button {
+  background-color: transparent;
+  color: #222222;
+  cursor: pointer;
+}
+
+.todo-list button:hover {
+  text-decoration: underline; /* Add underline effect on hover */
+}
+
+.courses-table {
+  width: 90%;
+  margin-left: 60px; 
+}
+
+.courses-table h2 {
+  margin-bottom: 10px;
+}
+
+.courses-table table {
+  width: 100%;
+  background-color: #f0f0f0;
+  border-collapse: collapse;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.courses-table table img {
+  width: 20%;
+}
+
+.courses-table th, .courses-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+
+.courses-table th.rate,
+.courses-table td.rate {
+  text-align: center;
+}
+
+.rate {
+  color: #007bff; /* Gold color for stars */
+}
+
+.table tbody tr td button {
+  background-color: transparent;
+  border: none;
+  color: #222222;
+  cursor: pointer;
+}
+
+.table tbody tr td button:hover {
+  text-decoration: underline; /* Add underline effect on hover */
+}
+
+.create-course {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.btn  {
+  width: 30%;
+  height: 45px;
+  background: #f0f0f0;
+  border: none;
+  border-radius: 40px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  font-size: 16px;
+  color: #000000;
+  
+  font-weight: 600;
+  transition: transform 0.3s;
+}
+
+.btn:hover {
+  transform: scale(0.92);
+}
