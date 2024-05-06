@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-fview',
@@ -12,7 +14,7 @@ export class FviewComponent implements OnInit {
   categoryCount: number = 10; // Placeholder value, replace with actual count
   currentReviewIndex: number = 0;
   categories = [
-    { name: 'Development', icon: 'bx-code' },
+    { name: 'Programming', icon: 'bx-code' },
     { name: 'Business', icon: 'bx-briefcase' },
     { name: 'Photography', icon: 'bx-camera' },
     { name: 'Music', icon: 'bx-music' },
@@ -22,7 +24,6 @@ export class FviewComponent implements OnInit {
     { name: 'Science', icon: 'bxs-thermometer' }
   ];
 
-  constructor() { }
 
   ngOnInit(): void {
     // Initialize any data or variables here
@@ -46,6 +47,33 @@ export class FviewComponent implements OnInit {
     this.currentReviewIndex++;
     if (this.currentReviewIndex >= this.reviews.length) {
       this.currentReviewIndex = 0; // Reset to the first review
+    }
+  }
+
+  constructor(private router: Router) { }
+
+  goToSignup() {
+    this.router.navigate(['/signup']);
+  }
+
+  goToExplore() {
+    this.router.navigate(['/ranking']);
+  }
+
+  goToCourses() {
+    this.router.navigate(['/allcourses']);
+  }
+
+  navigateToCategory(category: string) {
+    this.router.navigate(['/allcourses'], { queryParams: { category: category } });
+  }
+
+  toggleDescription(stepId: string) {
+    const description = document.getElementById(stepId + '-description') as HTMLElement;
+    if (description.style.display === 'none' || description.style.display === '') {
+      description.style.display = 'block';
+    } else {
+      description.style.display = 'none';
     }
   }
 

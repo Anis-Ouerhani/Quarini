@@ -13,11 +13,11 @@ export class NavHomeComponent {
   constructor(private router: Router) { }
 
   goToFView() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/home']);
   }
 
-  goToTeach() {
-    this.router.navigate(['/teach']); // Change to the actual path for teaching form
+  goToCourses() {
+    this.router.navigate(['/allcourses']);
   }
 
   goToLogin() {

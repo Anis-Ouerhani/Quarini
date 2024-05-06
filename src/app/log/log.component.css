@@ -1,23 +1,26 @@
-.cont{
-  padding: 60px;
+.cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #03a1fc;
 }
 
 .auth-container {
-  display: block;
-  background-color: #f0f0f0;
-  width: 90%; /* Adjusted width for responsiveness */
-  max-width: 600px; /* Limit maximum width */
-  margin: 0px auto;
+  max-width: 600px;
+  width: 100%;
   padding: 40px;
-  border-radius: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-  }
+  background-color: #ffffff;
+  box-shadow: 0px 0px 18px 3px rgba(0,0,0,0.69);
+  margin: 70px;
+}
   
   .logreg-title {
+    margin-bottom: 10px;
+    color: black;
+    font-size: 30px;
+    font-weight: 900;
     text-align: center;
-    margin-top: 20px;
     margin-bottom: 40px;
-    color: #333;
   }
   
   .logreg-title h2 {
@@ -34,7 +37,7 @@
     width: 100%;
     height: 50px;
     margin: 30px 0;
-    border-bottom: 2px solid #333;
+    border-bottom: 2px solid black;
   }
   
   .input-box input {
@@ -66,51 +69,49 @@
     top: -5px;
   }
   
-  
-  .input-box .icon {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-    font-size: 19px;
-    color: #333;
-  }
-  
   .rem-forg {
     font-size: 14px;
-    color: #333;
+    color: black;
     font-weight: 500;
-    margin: -15px 0 15px;
+    margin: 15px 0 30px 0;
     display: flex;
     justify-content: space-between;
   }
   
   .rem-forg label input {
-    accent-color: #333;
+    accent-color: black;
     margin-right: 3px;
   }
   
   .rem-forg a {
-    color: #333;
+    color: black;
     text-decoration: none;
+    cursor: pointer;
   }
   
   .rem-forg a:hover {
     text-decoration: underline;
+    color: black;
   }
   
   .btn {
     width: 100%;
     height: 45px;
-    background: #333;
-    border: none;
-    outline: none;
-    border-radius: 40px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .7);
     cursor: pointer;
     font-size: 16px;
-    color: #fff;
+    background-color: black;
+    color: #ffffff;
     font-weight: 600;
+    transition: transform 0.3s;
+  }
+  
+  .btn:hover {
+    color: black;
+    background-color: transparent;
+    transform: scale(1.02);
   }
   
   .logreg-link {
@@ -129,48 +130,6 @@
   
   .logreg-link a:hover {
     text-decoration: underline;
-    color: #007bff; 
+    color: black; 
     cursor: pointer; 
-  }
-  
-  .media-log {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-  }
-  
-  .media-log a {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 50px;
-    background: transparent;
-    border: 2px solid #333;
-    margin: 10px 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
-    border-radius: 40px;
-    color: #333;
-    text-decoration: none;
-    transition: .5s;
-  }
-  
-  .media-log a:hover {
-    background: rgba(51, 51, 51, .1);
-  }
-  
-  .media-log a i {
-    font-size: 22px;
-    margin: 0 8px 1.5px 0;
-  }
-  
-  .media-log a span {
-    font-size: 16px;
-    font-weight: 500;
-  }
-  
-  .error-message {
-    color: red;
-    font-size: 12px;
-    margin-top: 5px;
   }

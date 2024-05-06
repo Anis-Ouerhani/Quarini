@@ -2,32 +2,44 @@
   padding: 100px;
 }
 
-.dashboard-container {
-  margin-bottom: 70px;
+.chart-cards-container {
   display: flex;
-  justify-content: center;
+  align-items: flex-end;
+  margin-bottom: 20px;
+}
 
+.app-chart {
+  flex: 1;
+  margin: 0 10px 40px 200px;
+}
+
+.cards-container {
+  display: grid;
+  justify-content: flex-end;
+  margin: 0 100px 20px 10px;
+  flex: 1;
 }
 
 .dashboard-card {
   width: 200px;
   height: 150px;
-  background-color: #f0f0f0;
-  border: 1px solid #ccc;
+  background-color: #202020;
+  color: #ffffff;
+  border: none;
   border-radius: 5px;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin: 0 20px; /* Adjusted margin */
+  margin: 0 20px 40px;
   transition: transform 0.3s ease-in-out;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 .dashboard-card:hover {
   cursor: pointer;
-  transform: scale(1.1);
+  transform: scale(1.04);
 }
 
 .dashboard-card h2 {
@@ -42,9 +54,9 @@
 }
 
 
-.todo-list-container {
-  width: calc(100% - 440px); /* Total width - sum of widths of two cards and their margins */
-  margin: 0 auto; /* Increase space between to-do list and cards */
+/*.todo-list-container {
+  width: calc(100% - 440px); 
+  margin: 0 auto; 
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
@@ -53,8 +65,8 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 20px;
-  text-align: center; /* Center the content horizontally */
-  margin-bottom: 60px; /* Increase space between to-do list and table */
+  text-align: center; 
+  margin-bottom: 60px; 
 }
 
 .todo-list h2 {
@@ -89,12 +101,12 @@
 }
 
 .todo-list button:hover {
-  text-decoration: underline; /* Add underline effect on hover */
-}
+  text-decoration: underline; 
+}*/
 
 .courses-table {
   width: 90%;
-  margin-left: 60px; 
+  margin: 80px auto;
 }
 
 .courses-table h2 {
@@ -103,9 +115,10 @@
 
 .courses-table table {
   width: 100%;
-  background-color: #f0f0f0;
+  background-color: transparent;
   border-collapse: collapse;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  margin-bottom: 40px;
 }
 
 .courses-table table img {
@@ -114,7 +127,7 @@
 
 .courses-table th, .courses-table td {
   border: 1px solid #ccc;
-  padding: 8px;
+  padding: 12px;
   text-align: center;
 }
 
@@ -123,19 +136,19 @@
   text-align: center;
 }
 
-.rate {
-  color: #007bff; /* Gold color for stars */
-}
 
 .table tbody tr td button {
   background-color: transparent;
   border: none;
   color: #222222;
   cursor: pointer;
+  transition: transform 0.3s;
 }
 
 .table tbody tr td button:hover {
-  text-decoration: underline; /* Add underline effect on hover */
+  text-decoration: underline;
+  transform: scale(1.02);
+  font-weight: 800;
 }
 
 .create-course {
@@ -148,13 +161,13 @@
 .btn  {
   width: 30%;
   height: 45px;
-  background: #f0f0f0;
+  background: #202020;
   border: none;
   border-radius: 40px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
   cursor: pointer;
   font-size: 16px;
-  color: #000000;
+  color: #f0f0f0;
   
   font-weight: 600;
   transition: transform 0.3s;
@@ -162,4 +175,28 @@
 
 .btn:hover {
   transform: scale(0.92);
+}
+
+@media screen and (max-width: 768px) {
+  .chart-cards-container {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    margin-bottom: 20px;
+  }
+  
+  .app-chart {
+    width: 100%; /* Make the chart take full width */
+    margin-bottom: 60px; /* Add some spacing between the chart and the cards */
+  }
+  
+  .cards-container {
+    width: 100%; /* Make the cards container take full width */
+    margin-right: 280px;
+  }
+  
+
+  .dashboard-card {
+    margin: 0 0 20px; /* Adjusted margin */
+  }
 }

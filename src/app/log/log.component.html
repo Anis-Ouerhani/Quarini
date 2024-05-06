@@ -1,4 +1,5 @@
 <app-navhome></app-navhome>
+
 <div class="cont">
     <div class="auth-container">
         <div class="auth-form">
@@ -19,17 +20,14 @@
                         <label>
                             <input type="checkbox" [(ngModel)]="rememberMe" name="rememberMe"> Remember me
                         </label>
-                        <a href="#">Forgot password?</a>
+                        <a (click)="forgotPassword()">Forgot password?</a>
                     </div>
                     <button type="submit" class="btn">Login</button>
                 </form>
                 <p class="logreg-link">Don't have an account? <a (click)="goToSignup()">Register</a></p>
-                <div class="media-log">
-                    <a href="#"><i class="bx bxl-google"></i><span>Login with Google</span></a>
-                    <a href="#"><i class="bx bxl-linkedin"></i><span>Login with LinkedIn</span></a>
-                    <a href="#"><i class="bx bxl-facebook"></i><span>Login with Facebook</span></a>
-                </div>
             </div>
         </div>
       </div>
 </div>
+
+<app-footer></app-footer>

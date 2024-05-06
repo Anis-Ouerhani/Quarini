@@ -36,7 +36,62 @@ export class UpdateCourseComponent implements OnInit {
       courseId: 1,
       courseTitle: 'Example Course',
       courseDescription: 'This is an example course.',
-      courseLessons: []
+      courseLessons: [
+        {
+          lessonTitle: 'Introduction to Angular',
+          lessonDescription: 'Learn the basics of Angular framework.',
+          lessonChapters: [
+            {
+              chapterTitle: 'Getting Started',
+              chapterDescription: 'Introduction to Angular framework.',
+              chapterVideoLink: 'https://www.youtube.com/embed/dQw4w9WgXcQ'
+            },
+            {
+              chapterTitle: 'Components',
+              chapterDescription: 'Understanding Angular components.',
+              chapterVideoLink: 'https://www.youtube.com/embed/abc123'
+            }
+          ],
+          lessonQuizzes: [
+            {
+              quizQuestion: 'What is Angular?',
+              quizDescription: 'Please pick of these 3 answers : HTML framework - A Backend framework - A JavaScript framework',
+              quizCorrectAnswer: 'A JavaScript framework',
+              quizScore: 10
+            }
+          ]
+        },
+        {
+          lessonTitle: 'Directives and Services',
+          lessonDescription: 'Explore Angular directives and services.',
+          lessonChapters: [
+            {
+              chapterTitle: 'Directives Overview',
+              chapterDescription: 'Understanding Angular directives.',
+              chapterVideoLink: 'https://www.youtube.com/embed/def456'
+            },
+            {
+              chapterTitle: 'Services in Angular',
+              chapterDescription: 'Working with Angular services.',
+              chapterVideoLink: 'https://www.youtube.com/embed/ghi789'
+            }
+          ],
+          lessonQuizzes: [
+            {
+              quizQuestion: 'What are Angular directives used for?',
+              quizDescription: 'Please pick of these 3 answers : To add behavior to DOM elements - For making the TypeScript easier - For Designing',
+              quizCorrectAnswer: 'To add behavior to DOM elements',
+              quizScore: 10
+            },
+            {
+              quizQuestion: 'What is an Angular service?',
+              quizDescription: 'Please pick one of 3 these answers : A reusable piece of code - A TypeScript code - A connection between Frontend and Backend',
+              quizCorrectAnswer: 'A reusable piece of code',
+              quizScore: 10
+            }
+          ]
+        }
+      ]
     };
   }
 
@@ -67,7 +122,7 @@ export class UpdateCourseComponent implements OnInit {
 
   addChapter(lessonIndex: number): void {
     if (this.course.courseLessons && this.course.courseLessons[lessonIndex]) {
-      this.course.courseLessons[lessonIndex].lessonChapters.push({ chapterTitle: '', chapterDescription: '', chapterVideo: '' });
+      this.course.courseLessons[lessonIndex].lessonChapters.push({ chapterTitle: '', chapterDescription: '', chapterVideoLink: '' });
     }
   }
 
@@ -90,7 +145,7 @@ export class UpdateCourseComponent implements OnInit {
       });
 
       // Add new quiz with calculated score
-      this.course.courseLessons[lessonIndex].lessonQuizzes.push({ quizQuestion: '', quizCorrectAnswer: '', quizScore: score });
+      this.course.courseLessons[lessonIndex].lessonQuizzes.push({ quizQuestion: '', quizDescription: '', quizCorrectAnswer: '', quizScore: score });
     }
   }
 

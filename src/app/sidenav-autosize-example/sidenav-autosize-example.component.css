@@ -6,7 +6,7 @@
     height: 60px;
     padding: 0 20px;
     background-color: #202020;
-    box-shadow: 0px 0px 18px 3px rgba(0,0,0,0.4); 
+    box-shadow: 0px 0px 18px 3px rgba(0,0,0,0.69); 
 }
 
 .logo {
@@ -22,26 +22,27 @@
     transform: scale(0.9);
 }
 
-.right-elements {
+.right-buttons {
     display: flex;
-    align-items: center;
+    margin-right: 10px;
 }
 
-.right-elements div i {
-    font-size: 22px;
-    margin: 1rem;
-}
-
-.element {
-    color: #fff;
-    padding: 10px;
+.right-buttons button {
+    background: transparent;
+    font-weight: 700;
+    padding: 5px;
+    border: none;
+    color: #ffffff;
     cursor: pointer;
+    font-size: 18px;
+    margin-left: 20px;
     transition: transform 0.3s;
-}
 
-.element:hover {
+  }
+
+  .right-buttons button:hover {
     transform: scale(0.9);
-}
+  }
 
 
 /* Responsive adjustments */

@@ -20,6 +20,7 @@ export class InstMainDashComponent implements OnInit, OnDestroy {
       "courseTitle": "Course 1", 
       "coursePhotoFile": "assets/imagecourse.jpg", 
       "coursePublishedDate": "2024-04-15", 
+      "rate": 4,
       "courseStudentsEnrolled": 10 
     },
     { 
@@ -27,6 +28,7 @@ export class InstMainDashComponent implements OnInit, OnDestroy {
       "courseTitle": "Course 2", 
       "coursePhotoFile": "assets/imagecourse.jpg", 
       "coursePublishedDate": "2024-04-16", 
+      "rate": 5,
       "courseStudentsEnrolled": 15 
     }
   ];
@@ -94,27 +96,11 @@ export class InstMainDashComponent implements OnInit, OnDestroy {
     const total = ratings.reduce((sum, rating) => sum + rating.rating, 0);
     return total / ratings.length;
   }
-  
-  // Function to display stars based on rating
-  displayStars(rating: number): string {
-    const fullStars = Math.floor(rating);
-    const halfStar = rating - fullStars >= 0.5 ? 1 : 0;
-    const emptyStars = 5 - fullStars - halfStar;
-  
-    let stars = '';
-    for (let i = 0; i < fullStars; i++) {
-      stars += '★'; // Full star
-    }
-    if (halfStar) {
-      stars += '½'; // Half star
-    }
-    for (let i = 0; i < emptyStars; i++) {
-      stars += '☆'; // Empty star
-    }
-  
-    return stars;
-  }
 
+  deleteCourse(courseId: number) {
+    // Logic to delete course
+  }
+  
   addCourse() {
     this.router.navigate(['/create-course']);
   }

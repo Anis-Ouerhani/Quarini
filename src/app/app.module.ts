@@ -8,8 +8,6 @@ import { CreateCourseComponent } from './create-course/create-course.component';
 import { SidenavAutosizeExampleComponent } from './sidenav-autosize-example/sidenav-autosize-example.component';
 import { AddcontentComponent } from './addcontent/addcontent.component';
 import { InstMainDashComponent } from './instmaindash/instmaindash.component';
-import { CrslistComponent } from './crslist/crslist.component';
-import { ViscrsComponent } from './viscrs/viscrs.component';
 import { FviewComponent } from './fview/fview.component';
 import { LogComponent } from './log/log.component';
 import { SupComponent } from './sup/sup.component';
@@ -17,15 +15,19 @@ import { ProfileComponent } from './profile/profile.component';
 import { NavHomeComponent } from './navhome/navhome.component';
 import { ReviewsComponent } from './reviews/reviews.component';
 import { FooterComponent } from './footer/footer.component';
-import { TeachComponent } from './teach/teach.component';
-import { NewinstComponent } from './newinst/newinst.component';
 import { HeadComponent } from './head/head.component';
 import { UpdateCourseComponent } from './update-course/update-course.component';
-import { TestComponent } from './test/test.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CourseInterfaceComponent } from './course-interface/course-interface.component';
-import { SafeUrlPipe } from './safe-url.pipe'; // Adjust the path as per your project structure
-
+import { SafeUrlPipe } from './safe-url.pipe';
+import { AllcoursesComponent } from './allcourses/allcourses.component';
+import { TopCoursesComponent } from './top-courses/top-courses.component';
+import { ViewcourseComponent } from './viewcourse/viewcourse.component';
+import { StarRatingComponent } from './star-rating/star-rating.component';
+import { RankingsComponent } from './rankings/rankings.component';
+import { GraphLearnerpercourseComponent } from './graph-learnerpercourse/graph-learnerpercourse.component';
+import { AdminMainDashComponent } from './adminmaindash/adminmaindash.component';
+import { GraphAllComponent } from './graph-all/graph-all.component';
 
 @NgModule({
   declarations: [
@@ -34,8 +36,6 @@ import { SafeUrlPipe } from './safe-url.pipe'; // Adjust the path as per your pr
     SidenavAutosizeExampleComponent,
     AddcontentComponent,
     InstMainDashComponent,
-    CrslistComponent,
-    ViscrsComponent,
     FviewComponent,
     LogComponent,
     SupComponent,
@@ -43,20 +43,26 @@ import { SafeUrlPipe } from './safe-url.pipe'; // Adjust the path as per your pr
     NavHomeComponent,
     ReviewsComponent,
     FooterComponent,
-    TeachComponent,
-    NewinstComponent,
     HeadComponent,
     UpdateCourseComponent,
-    TestComponent,
     CourseInterfaceComponent,
-    SafeUrlPipe
+    SafeUrlPipe,
+    AllcoursesComponent,
+    TopCoursesComponent,
+    ViewcourseComponent,
+    StarRatingComponent,
+    RankingsComponent,
+    GraphLearnerpercourseComponent,
+    AdminMainDashComponent,
+    GraphAllComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

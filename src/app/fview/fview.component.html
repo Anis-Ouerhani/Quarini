@@ -7,8 +7,8 @@
     </div>
     <div class="fview-content">
       <h1>Elevate your potential with Quarini</h1>
-      <p>At <b>Quarini</b>, we are committed to empowering learners with the knowledge<br>and skills they need to succeed in today's fast-paced world. <b>Join us</b> on our<br>journey to redefine <b>online education</b> and unlock the potential of every learner.</p>
-      <button mat-raised-button color="primary">Learn More</button>
+      <p>At <b>Quarini</b>, we are committed to empowering learners with the knowledge and skills they need to succeed in today's fast-paced world. <b>Join us</b> on our journey to redefine <b>online education.</b></p>
+      <button mat-raised-button color="primary" (click)="goToSignup()">Start Now</button>
     </div>
   </div>
 
@@ -45,21 +45,75 @@
     </div>
   </div>
 
-  <app-crslist></app-crslist>
+  <app-top-courses></app-top-courses>
+
+  
   
   <div class="category-container">
-    <div class="category" *ngFor="let category of categories">
+    <div class="category" *ngFor="let category of categories" (click)="navigateToCategory(category.name)">
       <i class="bx" [class]="category.icon"></i>
-      <span class="category-name">{{ category.name }}</span>
+      <span class="category-name" >{{ category.name }}</span>
     </div>
   </div>
+
+  <div class="ranking-container">   
+    <div class="ranking-background">
+      <img src="assets/bckgg.jpg" alt="Background Image">
+    </div>
+    <div class="ranking-content">
+      <h1>Meet Our Elite Educators</h1>
+      <p>At <b>Quarini</b>, we believe in recognizing excellence. Our <b>ranking system</b> highlights the best <b>instructors</b> based on various factors such as teaching quality, student engagement, and course <b>effectiveness.</b></p>
+      <button mat-raised-button color="primary" (click)="goToExplore()">Explore</button>
+    </div>
+  </div>
+
+  <!--why?--> 
+  <div class="whycont">
+    <h1 class="next-area-title">Why Quarini?</h1>
+    <div class="next-area-container">
+      <div class="left-section">
+        <i class='bx bxs-magic-wand'></i>
+        <h2 class="section-title">Unlock the Magic of Learning</h2>
+        <p class="section-text">Experience the enchantment of Quarini's courses, where learning becomes a magical journey of discovery.</p>
+      </div>
   
-  <div class="reviews-container">
-    <div class="review">
-      <img [src]="reviews[currentReviewIndex].instructorPhoto" alt="Instructor Photo" class="instructor-photo">
-      <div class="review-content">
-        <p class="review-text">{{ reviews[currentReviewIndex].reviewText }} <br> - <span class="instructor-name">{{ reviews[currentReviewIndex].instructorName }}</span></p>
-        <button class="next-review-btn" (click)="nextReview()">></button>
+      <div class="center-section">
+        <i class='bx bxs-hot'></i>
+        <h2 class="section-title">Ignite Your Passion</h2>
+        <p class="section-text">Set your learning journey ablaze with Quarini's dynamic courses, designed to ignite your passion for knowledge.</p>
+      </div>
+    
+      <div class="right-section">
+        <i class='bx bxs-trophy' ></i>
+        <h2 class="section-title">Develop, Grow, and Win</h2>
+        <p class="section-text">Achieve victory through personal growth on Quarini's platform, where every course is a step towards success.</p>
+      </div>
+    </div>
+  </div>
+
+  <!--how?--> 
+  <div class="tutorial-area-container">
+    <h2 class="tutorial-area-title">How to Start?</h2>
+    <div class="tutorial-steps">
+      <div class="tutorial-step">
+        <button id="step1-button" class="step-btn" (click)="toggleDescription('step1')">◖Explore Our Courses◗</button>
+        <p class="step-description" id="step1-description"><a (click)="goToCourses()">Browse</a> through our extensive catalog of courses covering a wide range of topics. </p>
+      </div>
+      <div class="tutorial-step">
+        <button id="step3-button" class="step-btn" (click)="toggleDescription('step3')">◖Sign Up for Free as Student or an instructor◗</button>
+        <p class="step-description" id="step3-description"><a (click)="goToSignup()">Register</a> for a Quarini student or instructor account to get started.</p>
+      </div>
+      <div class="tutorial-step">
+        <button id="step9-button" class="step-btn" (click)="toggleDescription('step9')">◖Consult top ranked instructors◗</button>
+        <p class="step-description" id="step9-description"><a (click)="goToExplore()">Explore</a> our top-ranked instructors to find the perfect mentor for your learning journey.</p>
+      </div>
+      <div class="tutorial-step">
+        <button id="step7-button" class="step-btn" (click)="toggleDescription('step7')">◖Enroll and Start Learning◗</button>
+        <p class="step-description" id="step7-description">Enroll in your chosen course with just a few clicks.</p>
+      </div>
+      <div class="tutorial-step">
+        <button id="step8-button" class="step-btn" (click)="toggleDescription('step8')">◖Earn Certificates of Completion◗</button>
+        <p class="step-description" id="step8-description">Complete your course requirements and earn certificates of completion to showcase your new skills and knowledge.</p>
       </div>
     </div>
   </div>

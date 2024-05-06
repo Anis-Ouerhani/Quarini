@@ -15,11 +15,12 @@ interface Lesson {
 interface Chapter {
   chapterTitle: string;
   chapterDescription: string;
-  chapterVideo: string;
+  chapterVideoLink: string;
 }
 
 interface Quiz {
   quizQuestion: string;
+  quizDescription: string;
   quizCorrectAnswer: string;
   quizScore: number;
 }
@@ -48,7 +49,7 @@ export class AddcontentComponent {
   }
 
   addChapter(lessonIndex: number): void {
-    this.courseLessons[lessonIndex].lessonChapters.push({ chapterTitle: '', chapterDescription: '', chapterVideo: '' });
+    this.courseLessons[lessonIndex].lessonChapters.push({ chapterTitle: '', chapterDescription: '', chapterVideoLink: '' });
   }
 
   deleteChapter(lessonIndex: number, chapterIndex: number): void {
@@ -67,7 +68,7 @@ export class AddcontentComponent {
     });
 
     // Add new quiz with calculated score
-    this.courseLessons[lessonIndex].lessonQuizzes.push({ quizQuestion: '', quizCorrectAnswer: '', quizScore: score });
+    this.courseLessons[lessonIndex].lessonQuizzes.push({ quizQuestion: '', quizDescription: '', quizCorrectAnswer: '', quizScore: score });
   }
 
   deleteQuiz(lessonIndex: number, quizIndex: number): void {
@@ -97,7 +98,7 @@ export class AddcontentComponent {
   
     const allLessonsFilled = this.courseLessons.every(lesson =>
       lesson.lessonTitle.trim() && lesson.lessonDescription.trim() &&
-      lesson.lessonChapters.every(chapter => chapter.chapterTitle.trim() && chapter.chapterDescription.trim() && chapter.chapterVideo.trim()) &&
+      lesson.lessonChapters.every(chapter => chapter.chapterTitle.trim() && chapter.chapterDescription.trim() && chapter.chapterVideoLink.trim()) &&
       lesson.lessonQuizzes.every(quiz => quiz.quizQuestion.trim() && quiz.quizCorrectAnswer.trim()));
   
     if (allLessonsFilled) {

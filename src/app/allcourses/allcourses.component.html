@@ -1,0 +1,25 @@
+<!-- allcourses.component.html -->
+<app-navhome></app-navhome>
+
+<div class="cnt">
+  <div class="all-courses">
+  <div class="search-bar">
+    <input type="text" placeholder="Search courses..." [(ngModel)]="searchText">
+  </div>
+  <div *ngFor="let category of filteredCourses()" class="course-category">
+    <h2>{{ category.title }}</h2>
+    <div class="course-list">
+      <div *ngFor="let course of category.courses" class="polaroid-card" (click)="goToViewCourse()">
+        <img [src]="course.image" alt="{{ course.title }}">
+        <div class="container">
+          <h3>{{ course.title }}</h3>
+          <p>Duration: {{ course.duration }}</p>
+          <app-star-rating [rating]="course.rate"></app-star-rating>
+      </div>
+      </div>
+      <button class="next-btn" *ngIf="!searchText" (click)="nextCourse(category)">></button>
+    </div>
+  </div>
+</div>
+</div>
+

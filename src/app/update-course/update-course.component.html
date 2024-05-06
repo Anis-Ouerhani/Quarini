@@ -37,8 +37,8 @@
               <textarea id="chapterDescription{{ lessonIndex }}{{ chapterIndex }}" class="form-control" [(ngModel)]="chapter.chapterDescription" name="chapterDescription{{ lessonIndex }}{{ chapterIndex }}" required></textarea>
             </div>
             <div class="form-group">
-              <label for="chapterVideo{{ lessonIndex }}{{ chapterIndex }}">Chapter Video : </label>
-              <input type="file" id="chapterVideo{{ lessonIndex }}{{ chapterIndex }}" class="form-control" [(ngModel)]="chapter.chapterVideo" name="chapterVideo{{ lessonIndex }}{{ chapterIndex }}">
+              <label for="chapterVideoLink{{ lessonIndex }}{{ chapterIndex }}">Chapter Video Link : </label>
+              <input type="text" id="chapterVideoLink{{ lessonIndex }}{{ chapterIndex }}" class="form-control" [(ngModel)]="chapter.chapterVideoLink" name="chapterVideoLink{{ lessonIndex }}{{ chapterIndex }}">
             </div>
             <button type="button" class="btn btn-danger" (click)="deleteChapter(lessonIndex, chapterIndex)">Delete Chapter</button>
           </div>

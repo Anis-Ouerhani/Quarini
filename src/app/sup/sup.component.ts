@@ -15,7 +15,15 @@ export class SupComponent implements OnInit {
     phoneNumber: '',
     birthDate: '',
     password: '',
-    confirmPassword: ''
+    confirmPassword: '',
+    userType: '', // Default to empty
+    grade: '',
+    studyPlace: '',
+    interests: '',
+    category: '',
+    experience: '',
+    profession: '',
+    location: ''
   };
 
   passwordsMatch: boolean = true; // Ensure the property exists and initialized
@@ -48,5 +56,9 @@ export class SupComponent implements OnInit {
 
   goToLogin() {
     this.router.navigate(['/login']);
+  }
+
+  onUserTypeChange(event: any) {
+    // No need to reset fields
   }
 }

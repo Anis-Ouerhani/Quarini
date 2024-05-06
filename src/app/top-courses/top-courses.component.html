@@ -1,0 +1,21 @@
+<div class="top-courses">
+    <h2>Top Courses</h2>
+  
+    <div class="course-list">
+        <button class="prev-btn" (click)="onPrev()"><</button>
+        <div *ngFor="let course of displayedCourses" class="polaroid-card" (click)="goToViewCourse()">
+            <img [src]="course.image" alt="{{ course.title }}">
+            <div class="container">
+            <h3>{{ course.title }}</h3>
+                <p>Duration: {{ course.duration }}</p>
+                <p>Category: {{ course.category }}</p>
+                <app-star-rating [rating]="course.rate"></app-star-rating>
+            </div>
+        </div>
+        <button class="next-btn" (click)="onNext()">></button>
+    </div>
+  
+    
+    
+  </div>
+  
