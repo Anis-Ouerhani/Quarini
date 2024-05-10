@@ -43,13 +43,14 @@
   
       <div class="info-row">
         <div class="info">
-          <label for="profession">Profession:</label>
-          <input type="text" id="profession" [(ngModel)]="profession" [disabled]="!isEditMode">
-        </div>
-        <div class="info">
           <label for="location">Location:</label>
           <input type="text" id="location" [(ngModel)]="location" [disabled]="!isEditMode">
         </div>
+        <div class="info">
+          <label for="profession">Role:</label>
+          <input type="text" id="profession" [(ngModel)]="role" [disabled]="isEditMode">
+        </div>
+        
       </div>
   
       <div class="profile-actions">

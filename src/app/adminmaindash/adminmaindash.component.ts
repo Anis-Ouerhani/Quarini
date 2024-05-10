@@ -9,7 +9,11 @@ export class AdminMainDashComponent implements OnInit {
   instructorCount: number = 0;
   learnerCount: number = 0;
   courseCount: number = 0;
-
+  searchQuery: string = '';
+  searchMessage: string = '';
+  originalLearners!: any[];
+  originalCourses!: any[];
+  originalInstructors!: any[];
   activeTable: string = '';
 
   // Sample data
@@ -30,10 +34,65 @@ export class AdminMainDashComponent implements OnInit {
 
   constructor() { }
 
+  
+
   ngOnInit(): void {
-    // Simulate data loading
+    this.originalLearners = [...this.learners];
+    this.originalCourses = [...this.courses];
+    this.originalInstructors = [...this.instructors];
     this.startCounters();
   }
+
+  filterData() {
+    if (this.searchQuery.trim() === '') {
+        // If search query is empty, restore original data for the active table
+        if (this.activeTable === 'learners') {
+            this.learners = [...this.originalLearners];
+        } else if (this.activeTable === 'courses') {
+            this.courses = [...this.originalCourses];
+        } else if (this.activeTable === 'instructors') {
+            this.instructors = [...this.originalInstructors];
+        }
+        this.searchMessage = '';
+    } else {
+        // If search query is not empty, filter the data for the active table
+        if (this.activeTable === 'learners') {
+            const filteredLearners = this.originalLearners.filter(learner =>
+                learner.fullName.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+                learner.id.toString().includes(this.searchQuery.toLowerCase())
+            );
+            if (filteredLearners.length === 0) {
+                this.searchMessage = 'No learners found with this input.';
+            } else {
+                this.searchMessage = '';
+            }
+            this.learners = filteredLearners;
+        } else if (this.activeTable === 'courses') {
+            const filteredCourses = this.originalCourses.filter(course =>
+                course.courseTitle.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+                course.courseId.toString().includes(this.searchQuery.toLowerCase())
+            );
+            if (filteredCourses.length === 0) {
+                this.searchMessage = 'No courses found with this input.';
+            } else {
+                this.searchMessage = '';
+            }
+            this.courses = filteredCourses;
+        } else if (this.activeTable === 'instructors') {
+            const filteredInstructors = this.originalInstructors.filter(instructor =>
+                instructor.fullName.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+                instructor.id.toString().includes(this.searchQuery.toLowerCase())
+            );
+            if (filteredInstructors.length === 0) {
+                this.searchMessage = 'No instructors found with this input.';
+            } else {
+                this.searchMessage = '';
+            }
+            this.instructors = filteredInstructors;
+        }
+    }
+}
+
 
   startCounters() {
     // Simulate incrementing counters

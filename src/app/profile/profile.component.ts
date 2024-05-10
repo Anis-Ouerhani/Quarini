@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class ProfileComponent {
   isEditMode = false;
+  cannot = false;
 
   firstName: string = 'John';
   lastName: string = 'Doe';
@@ -15,13 +16,17 @@ export class ProfileComponent {
   birthdate: string = '1990-01-01';
   phoneNumber: string = '123456789';
   country: string = 'USA';
-  profession: string = 'Software Developer';
   location: string = 'New York';
+  role: string = 'Software Developer';
 
   constructor(private router: Router){}
 
   editMode() {
     this.isEditMode = true;
+  }
+  
+  cantEdit() {
+    return false;
   }
 
   editPhoto() {

@@ -32,6 +32,10 @@
   <!-- Learners Table -->
   <div class="table-container" *ngIf="activeTable === 'learners'">
     <h2>Learners</h2>
+    <div class="search-container">
+      <input type="text" placeholder="Search..." [(ngModel)]="searchQuery" (input)="filterData()">
+      <p *ngIf="searchMessage">{{ searchMessage }}</p>
+    </div>
     <table class="table">
       <!-- Table headers -->
       <thead>
@@ -61,6 +65,10 @@
   <!-- Courses Table -->
   <div class="table-container" *ngIf="activeTable === 'courses'">
     <h2>Courses</h2>
+    <div class="search-container">
+      <input type="text" placeholder="Search..." [(ngModel)]="searchQuery" (input)="filterData()">
+      <p *ngIf="searchMessage">{{ searchMessage }}</p>
+    </div>
     <table class="table">
       <!-- Table headers -->
       <thead>
@@ -92,6 +100,10 @@
   <!-- Instructors Table -->
   <div class="table-container" *ngIf="activeTable === 'instructors'">
     <h2>Instructors</h2>
+    <div class="search-container">
+      <input type="text" placeholder="Search..." [(ngModel)]="searchQuery" (input)="filterData()">
+      <p *ngIf="searchMessage">{{ searchMessage }}</p>
+    </div>
     <table class="table">
       <!-- Table headers -->
       <thead>

@@ -35,7 +35,7 @@ export class MyCoursesComponent {
   }
 
   generateCertificate(course: any) {
-    const learnerName = "John Doe"; // Replace with actual learner's name
+    const learnerName = "Hayder Thamloui"; // Replace with actual learner's name
     const certificateName = `${learnerName}_${course.courseTitle}_Certificate.jpg`;
 
     const img = new Image();
