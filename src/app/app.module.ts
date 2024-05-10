@@ -28,6 +28,11 @@ import { RankingsComponent } from './rankings/rankings.component';
 import { GraphLearnerpercourseComponent } from './graph-learnerpercourse/graph-learnerpercourse.component';
 import { AdminMainDashComponent } from './adminmaindash/adminmaindash.component';
 import { GraphAllComponent } from './graph-all/graph-all.component';
+import { MyCoursesComponent } from './mycourses/mycourses.component';
+import { RatingModule } from 'primeng/rating';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { StarrRatingComponent } from './starr-rating/starr-rating.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +60,9 @@ import { GraphAllComponent } from './graph-all/graph-all.component';
     GraphLearnerpercourseComponent,
     AdminMainDashComponent,
     GraphAllComponent,
+    MyCoursesComponent,
+    StarrRatingComponent,
+    ChangePasswordComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,7 +70,8 @@ import { GraphAllComponent } from './graph-all/graph-all.component';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-
+    RatingModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

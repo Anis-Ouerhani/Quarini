@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-fview',
@@ -13,6 +13,8 @@ export class FviewComponent implements OnInit {
   courseCount: number = 200; // Placeholder value, replace with actual count
   categoryCount: number = 10; // Placeholder value, replace with actual count
   currentReviewIndex: number = 0;
+  userRole!: string;
+  
   categories = [
     { name: 'Programming', icon: 'bx-code' },
     { name: 'Business', icon: 'bx-briefcase' },
@@ -24,9 +26,14 @@ export class FviewComponent implements OnInit {
     { name: 'Science', icon: 'bxs-thermometer' }
   ];
 
+  constructor(private router: Router, private authService: AuthService) {}
+
+  getUserRole(): string {
+    return this.authService.getUserRole();
+  }
 
   ngOnInit(): void {
-    // Initialize any data or variables here
+    this.userRole = this.getUserRole();
   }
 
   reviews: any[] = [
@@ -50,8 +57,6 @@ export class FviewComponent implements OnInit {
     }
   }
 
-  constructor(private router: Router) { }
-
   goToSignup() {
     this.router.navigate(['/signup']);
   }
@@ -66,6 +71,14 @@ export class FviewComponent implements OnInit {
 
   navigateToCategory(category: string) {
     this.router.navigate(['/allcourses'], { queryParams: { category: category } });
+  }
+
+  goToCreateCourse(){
+    this.router.navigate(['/create-course']);
+  }
+
+  goToDash(){
+    this.router.navigate(['/maindash']);
   }
 
   toggleDescription(stepId: string) {

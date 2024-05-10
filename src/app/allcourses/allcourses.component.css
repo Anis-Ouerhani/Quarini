@@ -1,8 +1,7 @@
 .cnt {
-  /*background-image: url('/assets/bgr.jpg'); /* Add a subtle background image */
   background-color: #02ace0;
   width: 100%;
-  height: auto;
+  min-height: 100vh; /* Set a minimum height to prevent container from resizing */
   z-index: 1;
 }
 
@@ -133,4 +132,17 @@
   background-color: #ffffff;
   color: #03a1fc;
   transform: translateY(-50%) scale(1.1); /* Add a subtle scale effect on hover */
+}
+
+.no-results-message {
+  text-align: start;
+  margin-top: 20px;
+  color: #ffffff;
+}
+
+.no-results-message p {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 10px;
 }

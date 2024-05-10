@@ -1,4 +1,4 @@
-<app-sidenav-autosize-example></app-sidenav-autosize-example>
+<app-navhome></app-navhome>
 <div class="cont">
   <div class="create-course-box">
     <h2>Create Course</h2>
@@ -10,7 +10,16 @@
         </div>
         <div class="form-group">
           <label for="courseCategory">Category : <span style="color: red;">*</span></label>
-          <input type="text" class="form-control" id="courseCategory" formControlName="courseCategory">
+          <select class="form-control" id="courseCategory" formControlName="courseCategory">
+            <option value="programming">Programming</option>
+            <option value="business">Business</option>
+            <option value="photography">Photography</option>
+            <option value="music">Music</option>
+            <option value="personal development">Personal Development</option>
+            <option value="trading">Trading</option>
+            <option value="marketing">Marketing</option>
+            <option value="science">Science</option>
+          </select>
         </div>
       </div>
       <div class="form-group">
@@ -18,7 +27,7 @@
         <textarea class="form-control" id="courseDescription" formControlName="courseDescription" rows="3"></textarea>
       </div>
       <div class="form-group">
-        <label for="coursePhotoFile">Course Photo</label>
+        <label for="coursePhotoFile">Course Photo : </label>
         <input type="file" id="coursePhotoFile" (change)="onFileChange($event)" />
       </div>
       <div class="form-group input-group">
@@ -40,15 +49,10 @@
           <option value="3">Advanced</option>
         </select>
       </div>
-      <div class="form-group">
-        <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="courseIsPremium" formControlName="courseIsPremium">
-          <label class="form-check-label" for="courseIsPremium">  Premium</label>
-        </div>
-      </div>
       <div class="button-row">
-        <button type="submit" class="btn btn-primary">Create</button>
+        <button type="submit" class="btn">Create</button>
       </div>
     </form>
   </div>
 </div>
+<app-footer></app-footer>

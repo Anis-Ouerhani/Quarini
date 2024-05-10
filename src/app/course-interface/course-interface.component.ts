@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 // Define interfaces
 export interface Lesson {
@@ -14,10 +16,14 @@ export interface Chapter {
   chapterVideo: string;
 }
 
+export interface Answer {
+  text: string;
+  isCorrect: boolean;
+}
+
 export interface Quiz {
   quizQuestion: string;
-  quizDescription: string;
-  quizCorrectAnswer: string;
+  answers: Answer[];
   quizScore: number;
 }
 
@@ -50,8 +56,11 @@ export const exampleCourse: Course = {
       lessonQuizzes: [
         {
           quizQuestion: 'What is Angular?',
-          quizDescription: 'Please pick of these 3 answers : HTML framework - A Backend framework - A JavaScript framework',
-          quizCorrectAnswer: 'A JavaScript framework',
+          answers: [
+            { text: 'HTML framework', isCorrect: false },
+            { text: 'A Backend framework', isCorrect: false },
+            { text: 'A JavaScript framework', isCorrect: true }
+          ],
           quizScore: 10
         }
       ]
@@ -74,14 +83,20 @@ export const exampleCourse: Course = {
       lessonQuizzes: [
         {
           quizQuestion: 'What are Angular directives used for?',
-          quizDescription: 'Please pick of these 3 answers : To add behavior to DOM elements - For making the TypeScript easier - For Designing',
-          quizCorrectAnswer: 'To add behavior to DOM elements',
+          answers: [
+            { text: 'To add behavior to DOM elements', isCorrect: true },
+            { text: 'For making the TypeScript easier', isCorrect: false },
+            { text: 'For Designing', isCorrect: false }
+          ],
           quizScore: 10
         },
         {
           quizQuestion: 'What is an Angular service?',
-          quizDescription: 'Please pick one of 3 these answers : A reusable piece of code - A TypeScript code - A connection between Frontend and Backend',
-          quizCorrectAnswer: 'A reusable piece of code',
+          answers: [
+            { text: 'A reusable piece of code', isCorrect: true },
+            { text: 'A TypeScript code', isCorrect: false },
+            { text: 'A connection between Frontend and Backend', isCorrect: false }
+          ],
           quizScore: 10
         }
       ]
@@ -99,8 +114,14 @@ export class CourseInterfaceComponent {
   lessons: Lesson[] = exampleCourse.courseLessons;
   isSidebarHidden: boolean = false;
   selectedContent: any;
-  quizAnswer: string = '';
   answers: any = {};
+  currentLessonIndex: number = 0; // Track current lesson
+  totalCorrectAnswers: number = 0; // Track total correct answers
+  totalQuestions: number = 0; // Track total questions
+  showRateBox: boolean = false;
+  rating!: number;
+
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     // Set the default selected content to the first chapter of the first lesson
@@ -123,9 +144,66 @@ export class CourseInterfaceComponent {
 
   submitQuiz() {
     // Process submitted quiz answers here
-    console.log(this.answers);
+    const quiz = this.selectedContent.quiz;
+    const correctAnswer = quiz.answers.find((answer: Answer) => answer.isCorrect);
+    if (this.answers[quiz.quizQuestion] === correctAnswer.text) {
+      this.totalCorrectAnswers++;
+    }
+    this.totalQuestions++;
+  
+    const currentLesson = this.lessons[this.currentLessonIndex];
+    const currentQuizIndex = currentLesson.lessonQuizzes.findIndex(q => q === quiz);
+  
+    // Check if it's the last quiz of the last lesson
+    if (this.currentLessonIndex === this.lessons.length - 1 && currentQuizIndex === currentLesson.lessonQuizzes.length - 1) {
+      // Display overall result
+      const result = `You answered ${this.totalCorrectAnswers} correct quizzes out of ${this.totalQuestions}.`;
+      if (this.totalCorrectAnswers === this.totalQuestions) {
+        Swal.fire({
+        title: 'Congratulations!',
+        text: `You've completed the course.`,
+        icon: 'success'
+      }).then(() => {
+        this.showRateBox = true; // Show the rate box
+      });
+    } else {
+        Swal.fire({
+          title: 'Failure',
+          text: `${result} You need to go back and have all quizzes correct.`,
+          icon: 'error',
+          confirmButtonText: 'Proceed'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            // Reset quiz progress and navigate to the first quiz
+            this.currentLessonIndex = 0;
+            this.totalCorrectAnswers = 0;
+            this.totalQuestions = 0;
+            this.selectedContent = { quiz: this.lessons[0].lessonQuizzes[0] };
+          }
+        });
+      }
+    } else {
+      // Navigate to the next lesson or quiz
+      if (currentQuizIndex < currentLesson.lessonQuizzes.length - 1) {
+        // Move to the next quiz in the same lesson
+        this.selectedContent = { quiz: currentLesson.lessonQuizzes[currentQuizIndex + 1] };
+      } else {
+        // Move to the next lesson
+        this.currentLessonIndex++;
+        this.selectedContent = this.lessons[this.currentLessonIndex].lessonChapters[0];
+      }
+    }
   }
 
+  onRateChange(value: number) {
+    this.rating = value;
+  }
+
+  onSubmit() {
+    console.log('Rating:', this.rating);
+    this.router.navigate(['/mycourses']);
+  }
+  
   toggleSidebar() {
     this.isSidebarHidden = !this.isSidebarHidden;
   }

@@ -1,3 +1,9 @@
+.cnt {
+    width: 100%;
+    min-height: 70vh; /* Set a minimum height to prevent container from resizing */
+    z-index: 1;
+  }
+
 /* Container Styles */
 .rankings-container {
     margin-top: 50px;

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -8,36 +9,55 @@ import Swal from 'sweetalert2';
   styleUrls: ['./log.component.css']
 })
 export class LogComponent implements OnInit {
-
   loginData = {
     email: '',
     password: ''
   };
-
   rememberMe: boolean = false;
-  showSignupForm: boolean = false; // Variable to track whether to show login form or sign-up form
+  errorMessage: string = '';
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private authService: AuthService) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  login(): void {
+    this.authService.login(this.loginData.email, this.loginData.password).subscribe(
+      () => {
+        const userRole = this.authService.getUserRole();
+  
+        switch (userRole) {
+          case 'admin':
+            this.router.navigate(['/admin']);
+            break;
+          case 'learner':
+            this.router.navigate(['/home']);
+            break;
+          case 'instructor':
+            this.router.navigate(['/maindash']);
+            break;
+          default:
+            const errorMessage = 'Invalid E-mail and Password. Please try again. ';
+            this.errorMessage = errorMessage; 
+            break;
+        }
+      },
+      (error) => {
+        const errorMessage = 'An error occurred during login. Please try again.';
+        this.errorMessage = errorMessage; 
+      }
+    );
   }
 
-  login() {
-    // Implement login functionality here
-    console.log('Logging in with:', this.loginData);
-  }
-
-  goToSignup() {
+  goToSignup(): void {
     this.router.navigate(['/signup']);
   }
 
-  forgotPassword() {
+  forgotPassword(): void {
     Swal.fire({
       title: 'Forgot Password',
-      html: `
-        <p>Please enter your email.</p>
-        <input type="email" id="forgot-email" class="swal2-input" placeholder="Enter your email">
-      `,
+      html: 
+        `<p>Please enter your email.</p>
+        <input type="email" id="forgot-email" class="swal2-input" placeholder="Enter your email">`,
       confirmButtonText: 'Send',
       showCancelButton: true,
       cancelButtonText: 'Cancel',
@@ -48,25 +68,23 @@ export class LogComponent implements OnInit {
           Swal.showValidationMessage(`Please enter your email`);
         } else {
           // Call your API or service to send the password reset email
-          // For demonstration purposes, I'll just log the email
           console.log(`Sending password reset email to ${email}`);
 
-          // If the email is not in the database, you can show a failure alert box
-          // For example:
-          // Swal.showValidationMessage(`The email entered is not valid`);
+          //failure!
+          Swal.showValidationMessage(`The email entered is not valid`);
 
-          // If the email is in the database, you can show a success alert box
+          //sent!
           Swal.fire({
             title: 'Success',
             text: 'An email has been sent to you. Please check it out.',
             icon: 'success',
-            confirmButtonColor: '#000', // Change the color of the success button to black
-            cancelButtonColor: '#333' // Change the color of the cancel button to black
+            confirmButtonColor: '#000',
+            cancelButtonColor: '#333' 
           });
         }
       },
-      confirmButtonColor: '#000', // Change the color of the confirm button to black
-      cancelButtonColor: '#333' // Change the color of the cancel button to black
+      confirmButtonColor: '#000', 
+      cancelButtonColor: '#333'
     });
   }
 }

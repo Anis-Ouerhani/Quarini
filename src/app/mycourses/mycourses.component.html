@@ -1,0 +1,43 @@
+
+<app-navhome></app-navhome>
+<div class="container">
+    <div class="courses-table">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="img">Image</th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Progress</th>
+                    <th>Certificate</th> 
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let course of courses">
+                    <td><img [src]="course.image" alt="Course Image"></td>
+                    <td>{{ course.courseTitle }}</td>
+                    <td>{{ course.courseCategory }}</td>
+                    <td>
+                        <ng-container *ngIf="course.completed; else proceedButton">
+                            Completed
+                        </ng-container>
+                        <ng-template #proceedButton>
+                            <button (click)="proceedToCourse(course)">Proceed</button>
+                        </ng-template>
+                    </td>
+                    <td>
+                        <ng-container *ngIf="course.completed">
+                        <button (click)="generateCertificate(course)">Available</button>
+                        </ng-container>
+                        <ng-container *ngIf="!course.completed">
+                        Not Available
+                        </ng-container>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<app-footer></app-footer>
+

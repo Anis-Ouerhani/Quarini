@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -17,6 +18,8 @@ export class ProfileComponent {
   profession: string = 'Software Developer';
   location: string = 'New York';
 
+  constructor(private router: Router){}
+
   editMode() {
     this.isEditMode = true;
   }
@@ -33,5 +36,9 @@ export class ProfileComponent {
   cancelEdit() {
     this.isEditMode = false;
     // Reset fields to their original values
+  }
+
+  changePassword() {
+    this.router.navigate(['/changepass'])
   }
 }

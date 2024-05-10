@@ -27,7 +27,7 @@
 .dashboard-card {
   width: 200px;
   height: 200px;
-  background-color: #202020;
+  background-color: #000000;
   color: #ffffff;
   border: none;
   border-radius: 5px;
@@ -66,7 +66,7 @@
 .btn {
   width: 30%;
   height: 45px;
-  background: #202020;
+  background: #000000;
   border: none;
   border-radius: 40px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
@@ -100,7 +100,7 @@
 }
 
 .table th, .table td {
-  border-bottom: 1px solid #202020;
+  border-bottom: 1px solid #000000;
   padding: 12px;
   text-align: center;
 }
@@ -112,7 +112,7 @@
 .table tbody tr td button {
   background-color: transparent;
   border: none;
-  color: #222222;
+  color: #000000;
   cursor: pointer;
   transition: transform 0.3s;
 }

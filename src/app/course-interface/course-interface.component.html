@@ -26,11 +26,27 @@
     <h2>{{ selectedContent?.chapterTitle || selectedContent?.quiz?.quizQuestion }}</h2>
     <div *ngIf="selectedContent?.chapterDescription">
       <p>{{ selectedContent.chapterDescription }}</p>
-      <iframe width="970" height="530" [src]="selectedContent.chapterVideo | safeUrl" frameborder="0" allowfullscreen></iframe>
+      <div class="iframe-container">
+        <iframe [src]="selectedContent.chapterVideo | safeUrl" frameborder="0" allowfullscreen></iframe>
+      </div>
     </div>
     <div *ngIf="selectedContent?.quiz" class="quizdisplay">
-      <p>{{ selectedContent.quiz.quizDescription }}</p>
-      <input type="text" placeholder="Your answer..." [(ngModel)]="quizAnswer">
-      <button (click)="submitQuiz()">Submit Quiz</button>
+      <p>Please check the correct answer</p>
+      <div *ngFor="let answer of selectedContent.quiz.answers" class="answer">
+        <input type="radio" name="quizAnswer" [value]="answer.text" (change)="answers[selectedContent?.quiz?.quizQuestion] = answer.text"> <label>{{ answer.text }}</label>
+      </div>
+      <button (click)="submitQuiz()" style="margin-top: 20px;">Submit Quiz</button>
     </div>
+  </div>  
+
+  <div *ngIf="showRateBox" class="rate-box">
+    <div class="center-box">
+      <h2>Rate our course</h2>
+      <p>In order to get your certificate, you need to rate this course.</p>
+      <app-starr-rating (ratingChange)="onRateChange($event)"></app-starr-rating>
+      <button style="margin-top: 20px; padding: 10px;" (click)="onSubmit()">Submit Rate</button>
+    </div>
+  </div>
 </div>
+
+<app-footer></app-footer>

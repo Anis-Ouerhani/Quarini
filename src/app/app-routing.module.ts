@@ -13,21 +13,27 @@ import { AllcoursesComponent } from './allcourses/allcourses.component';
 import { ViewcourseComponent } from './viewcourse/viewcourse.component'; 
 import { RankingsComponent } from './rankings/rankings.component'; 
 import { AdminMainDashComponent } from './adminmaindash/adminmaindash.component';
+import { MyCoursesComponent } from './mycourses/mycourses.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
+import { AuthGuard } from './auth.guard'
 
 const routes: Routes = [
-  { path: 'admin', component: AdminMainDashComponent },
-  { path: 'ranking', component: RankingsComponent },
-  { path: 'insidecourse', component: CourseInterfaceComponent },
-  { path: 'viewcourse', component: ViewcourseComponent },
-  { path: 'home', component: FviewComponent },
-  { path: 'create-course', component: CreateCourseComponent },
-  { path: 'addcontent', component: AddcontentComponent },
-  { path: 'login', component: LogComponent },
-  { path: 'signup', component: SupComponent },
-  { path: 'profile', component: ProfileComponent }, 
-  { path: 'maindash', component: InstMainDashComponent },
-  { path: 'updatecourse', component: UpdateCourseComponent },
-  { path: 'allcourses', component: AllcoursesComponent },
+
+    { path: 'mycourses', component: MyCoursesComponent },//, canActivate: [AuthGuard], data: { roles: ['learner'] }
+    { path: 'admin', component: AdminMainDashComponent, canActivate: [AuthGuard], data: { roles: ['admin'] } },
+    { path: 'changepass', component: ChangePasswordComponent, canActivate: [AuthGuard], data: { roles: ['admin','instructor','learner'] } },
+    { path: 'ranking', component: RankingsComponent },
+    { path: 'insidecourse', component: CourseInterfaceComponent },//, canActivate: [AuthGuard], data: { roles: ['learner'] }
+    { path: 'viewcourse', component: ViewcourseComponent },
+    { path: 'home', component: FviewComponent },
+    { path: 'create-course', component: CreateCourseComponent }, //, canActivate: [AuthGuard], data: { roles: ['instructor'] } 
+    { path: 'addcontent', component: AddcontentComponent }, //, canActivate: [AuthGuard], data: { roles: ['instructor'] }
+    { path: 'login', component: LogComponent },
+    { path: 'signup', component: SupComponent },
+    { path: 'profile', component: ProfileComponent },
+    { path: 'maindash', component: InstMainDashComponent, canActivate: [AuthGuard], data: { roles: ['instructor'] } },
+    { path: 'updatecourse', component: UpdateCourseComponent, canActivate: [AuthGuard], data: { roles: ['instructor'] } },
+    { path: 'allcourses', component: AllcoursesComponent },
 
 ];
 

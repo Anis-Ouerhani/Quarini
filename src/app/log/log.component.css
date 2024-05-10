@@ -133,3 +133,9 @@
     color: black; 
     cursor: pointer; 
   }
+
+  .error-message{
+    color: red;
+    text-align: center;
+    font-weight: 700;
+  }

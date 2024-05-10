@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 
-
 @Component({
   selector: 'app-allcourses',
   templateUrl: './allcourses.component.html',
@@ -48,6 +47,8 @@ export class AllcoursesComponent {
 
   currentIndex: { [key: string]: number } = {};
 
+  constructor(private router: Router, private route: ActivatedRoute) {}
+
   filteredCourses() {
     return this.categories.filter(category => 
       category.title.toLowerCase().includes(this.searchText.toLowerCase()) ||
@@ -71,9 +72,6 @@ export class AllcoursesComponent {
     }).filter(category => category.courses.length > 0);
   }
   
-  
-  
-
   nextCourse(category: any) {
     const categoryId = category.title;
     this.currentIndex[categoryId] = (this.currentIndex[categoryId] + 1) % category.courses.length;
@@ -88,13 +86,8 @@ export class AllcoursesComponent {
     }
   }
 
-  constructor(private router: Router, private route: ActivatedRoute) {}
-  //goToViewCourse(courseId: number) {
-    //this.router.navigate(['/view-course', courseId]); // Assuming courseId is the identifier of the course
-  //}
-
   goToViewCourse() {
-    this.router.navigate(['/viewcourse'])
+    this.router.navigate(['/viewcourse']);
   }
 
   ngOnInit() {
@@ -107,5 +100,9 @@ export class AllcoursesComponent {
       }
     });
   }
-  
+
+  // Helper function to check if there are any search results
+  hasSearchResults(): boolean {
+    return this.filteredCourses().length > 0;
+  }
 }
