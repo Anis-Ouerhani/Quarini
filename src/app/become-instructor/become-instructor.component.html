@@ -4,7 +4,7 @@
         <h2>Become an Instructor</h2>
         <form [formGroup]="form" (ngSubmit)="submitForm()">
             <div class="form-group">
-                <label for="background">Background:</label>
+                <label for="background">Affiliation:</label>
                 <select id="background" formControlName="background" (change)="toggleOtherBackground($event.target)">
                     <option value="development">Development</option>
                     <option value="business">Business</option>
