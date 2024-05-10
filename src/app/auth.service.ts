@@ -7,7 +7,7 @@ import { tap, catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
-  private readonly apiUrl = '/api/auth';
+  private readonly apiUrl = '';
   private userRole!: string;
 
   constructor(private http: HttpClient) {}
@@ -39,11 +39,12 @@ export class AuthService {
   }
 
   isAuthenticated(): boolean {
-    const authToken = localStorage.getItem('authToken');
-    return !!authToken;
+    //const authToken = localStorage.getItem('authToken');
+    //return !!authToken;
+    return true;
   }
 
   getUserRole(): string {
-    return 'instructor'
+    return 'learner'
   }
 }

@@ -16,18 +16,21 @@ import { AdminMainDashComponent } from './adminmaindash/adminmaindash.component'
 import { MyCoursesComponent } from './mycourses/mycourses.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { AuthGuard } from './auth.guard'
+import { BecomeInstructorComponent } from './become-instructor/become-instructor.component';
+
 
 const routes: Routes = [
 
-    { path: 'mycourses', component: MyCoursesComponent },//, canActivate: [AuthGuard], data: { roles: ['learner'] }
+    { path: 'mycourses', component: MyCoursesComponent , canActivate: [AuthGuard], data: { roles: ['learner'] }},//
+    { path: 'become-inst', component: BecomeInstructorComponent , canActivate: [AuthGuard], data: { roles: ['learner'] }},
     { path: 'admin', component: AdminMainDashComponent, canActivate: [AuthGuard], data: { roles: ['admin'] } },
     { path: 'changepass', component: ChangePasswordComponent, canActivate: [AuthGuard], data: { roles: ['admin','instructor','learner'] } },
     { path: 'ranking', component: RankingsComponent },
-    { path: 'insidecourse', component: CourseInterfaceComponent },//, canActivate: [AuthGuard], data: { roles: ['learner'] }
+    { path: 'insidecourse', component: CourseInterfaceComponent , canActivate: [AuthGuard], data: { roles: ['learner'] }},//
     { path: 'viewcourse', component: ViewcourseComponent },
-    { path: 'home', component: FviewComponent },
-    { path: 'create-course', component: CreateCourseComponent }, //, canActivate: [AuthGuard], data: { roles: ['instructor'] } 
-    { path: 'addcontent', component: AddcontentComponent }, //, canActivate: [AuthGuard], data: { roles: ['instructor'] }
+    { path: '', component: FviewComponent },
+    { path: 'create-course', component: CreateCourseComponent, canActivate: [AuthGuard], data: { roles: ['instructor'] }  }, //
+    { path: 'addcontent', component: AddcontentComponent, canActivate: [AuthGuard], data: { roles: ['instructor'] } }, //
     { path: 'login', component: LogComponent },
     { path: 'signup', component: SupComponent },
     { path: 'profile', component: ProfileComponent },

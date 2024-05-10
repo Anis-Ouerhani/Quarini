@@ -33,6 +33,7 @@ import { RatingModule } from 'primeng/rating';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { StarrRatingComponent } from './starr-rating/starr-rating.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { BecomeInstructorComponent } from './become-instructor/become-instructor.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     MyCoursesComponent,
     StarrRatingComponent,
     ChangePasswordComponent,
+    BecomeInstructorComponent,
   ],
   imports: [
     BrowserModule,

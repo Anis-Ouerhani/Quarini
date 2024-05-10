@@ -15,8 +15,8 @@ export class NavHomeComponent implements OnInit {
   ngOnInit(): void {
     // Assign the value of userRole when the component initializes
     this.userRole = this.getUserRole();
-    // Call the method to redirect when connected
-  }
+    this.whenConnect;
+    }
 
   isLoggedIn(): boolean {
     return this.authService.isAuthenticated();
@@ -27,17 +27,18 @@ export class NavHomeComponent implements OnInit {
   }
 
   whenConnect(): void {
+    if (this.isLoggedIn()) {
       const userRole = this.getUserRole();
 
       if (userRole === 'instructor') {
         this.router.navigate(['/maindash']);
       } else if (userRole === 'admin') {
         this.router.navigate(['/admin']);
-      } else if (userRole === 'learner') {
+      } else {
         this.router.navigate(['/home']);
       }
-     else {
-      this.router.navigate(['/login']);
+    } else {
+      // Redirect to login page or display a message for non-authenticated users
     }
   }
 
@@ -45,12 +46,12 @@ export class NavHomeComponent implements OnInit {
     this.router.navigate(['/admin']);
   }
 
-  goToChangePassword() {
-    this.router.navigate(['/changepass'])
-  }
-
   goToInstructorDashboard(){
     this.router.navigate(['/maindash']);
+  }
+
+  goToChangePassword() {
+    this.router.navigate(['/changepass'])
   }
 
   goToMyCourses(){

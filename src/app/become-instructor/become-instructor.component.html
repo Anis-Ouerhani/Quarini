@@ -1,0 +1,68 @@
+<app-navhome></app-navhome>
+<div class="cont">
+    <div class="form-container">
+        <h2>Become an Instructor</h2>
+        <form [formGroup]="form" (ngSubmit)="submitForm()">
+            <div class="form-group">
+                <label for="background">Background:</label>
+                <select id="background" formControlName="background" (change)="toggleOtherBackground($event.target)">
+                    <option value="development">Development</option>
+                    <option value="business">Business</option>
+                    <option value="photography">Photography</option>
+                    <option value="music">Music</option>
+                    <option value="personal development">Personal Development</option>
+                    <option value="trading">Trading</option>
+                    <option value="marketing">Marketing</option>
+                    <option value="science">Science</option>
+                    <option value="another">Another</option>
+                </select>
+                <div *ngIf="form.get('background')?.invalid && form.get('background')?.touched">
+                    <label style="color: red; font-weight: 600;">Background is required.</label>
+                </div>
+            </div>
+            
+            <div *ngIf="showOtherBackground">
+                <label for="other-background">Enter Other Background:</label>
+                <input type="text" id="other-background" formControlName="otherBackground">
+            </div>
+
+            <div class="form-group">
+                <label>What is your professional experience in the field of education?</label>
+                <div>
+                    <input type="radio" id="daily" name="engagement" formControlName="engagement" value="beg">
+                    <label for="beg">Over a decade in secondary and tertiary education.</label>
+                </div>
+                <div>
+                    <input type="radio" id="weekly" name="engagement" formControlName="engagement" value="med">
+                    <label for="med">Diverse roles in teaching, mentoring, and academia.</label>
+                </div>
+                <div>
+                    <input type="radio" id="monthly" name="engagement" formControlName="engagement" value="pro">
+                    <label for="pro">Leadership in academic institutions, research contributions.</label>
+                </div>
+                <div *ngIf="form.get('engagement')?.invalid && form.get('engagement')?.touched">
+                    <label style="color: red; font-weight: 600;" >Engagement is required.</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="profession">Profession:</label>
+                <input type="text" id="profession" formControlName="profession">
+                <div *ngIf="form.get('profession')?.invalid && form.get('profession')?.touched">
+                    <label style="color: red; font-weight: 600;" >Profession is required.</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="location">Workplace:</label>
+                <input type="text" id="location" formControlName="location">
+                <div *ngIf="form.get('location')?.invalid && form.get('location')?.touched">
+                    <label style="color: red; font-weight: 600;">Location is required.</label>
+                </div>
+            </div>
+
+            <button type="button" (click)="submitForm()" class="btn">Submit</button>
+        </form>
+    </div>
+</div>
+<app-footer></app-footer>
