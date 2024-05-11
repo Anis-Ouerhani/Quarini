@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -6,9 +6,13 @@ import { Router } from '@angular/router';
   templateUrl: './instmaindash.component.html',
   styleUrls: ['./instmaindash.component.css']
 })
-export class InstMainDashComponent implements OnInit, OnDestroy {
+export class InstMainDashComponent implements OnInit {
   courseCount: number = 0;
   studentCount: number = 0;
+  searchQuery: string = '';
+  searchMessage: string = '';
+  originalCourses!: any[];
+
   todos: any[] = [
     { task: 'Task 1', completed: false },
     { task: 'Task 2', completed: true }
@@ -43,12 +47,28 @@ export class InstMainDashComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.startCounters();
+    this.originalCourses = [...this.courses];
   }
 
-  ngOnDestroy(): void {
-    clearInterval(this.courseInterval);
-    clearInterval(this.studentInterval);
-  }
+  filterData() {
+    if (this.searchQuery.trim() === '') {
+        // If search query is empty, restore original data
+        this.courses = [...this.originalCourses];
+        this.searchMessage = '';
+    } else {
+        // If search query is not empty, filter the courses
+        const filteredCourses = this.originalCourses.filter(course =>
+            course.courseTitle.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+            course.courseId.toString().includes(this.searchQuery.toLowerCase())
+        );
+        if (filteredCourses.length === 0) {
+            this.searchMessage = 'No courses found with this input.';
+        } else {
+            this.searchMessage = '';
+        }
+        this.courses = filteredCourses;
+    }
+}
 
   startCounters() {
     this.courseInterval = setInterval(() => {

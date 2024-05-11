@@ -46,6 +46,6 @@ export class AuthService {
 
   getUserRole(): string {
     //return this.userRole;
-    return 'admin'
+    return 'instructor'
   }
 }
