@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-instmaindash',
@@ -118,7 +119,21 @@ export class InstMainDashComponent implements OnInit {
   }
 
   deleteCourse(courseId: number) {
-    // Logic to delete course
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You are about to delete this course.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'No, keep it'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Logic to delete course
+        Swal.fire('Deleted!', 'Course has been deleted.', 'success');
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire('Cancelled', 'Your course is safe :)', 'error');
+      }
+    });
   }
   
   addCourse() {
