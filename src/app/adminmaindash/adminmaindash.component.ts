@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-adminmaindash',
@@ -109,44 +110,116 @@ export class AdminMainDashComponent implements OnInit {
     }, 2000);
   }
 
+  calculateAverageRating(course: any): number {
+    // Logic to calculate average rating
+    return 0; // Placeholder value
+  }
+
   toggleTable(table: string) {
     this.activeTable = table;
   }
 
   deleteLearner(learnerId: number) {
-    // Logic to delete learner
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You are about to delete this learner.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'No, keep it'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Logic to delete learner
+        Swal.fire('Deleted!', 'Learner has been deleted.', 'success');
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire('Cancelled', 'Your learner is safe :)', 'error');
+      }
+    });
   }
 
   suspendLearner(learnerId: number) {
-    // Logic to suspend learner
-  }
-
-  reactivateLearner(learnerId: number) {
-    // Logic to reactivate learner
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You are about to suspend this learner.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, suspend it!',
+      cancelButtonText: 'No, keep it'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Logic to suspend learner
+        Swal.fire('Suspended!', 'Learner has been suspended.', 'success');
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire('Cancelled', 'Your learner is safe :)', 'error');
+      }
+    });
   }
 
   deleteCourse(courseId: number) {
-    // Logic to delete course
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You are about to delete this course.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'No, keep it'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Logic to delete course
+        Swal.fire('Deleted!', 'Course has been deleted.', 'success');
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire('Cancelled', 'Your course is safe :)', 'error');
+      }
+    });
   }
 
   toggleCourseVisibility(courseId: number) {
     // Logic to hide/unhide course
   }
 
-  calculateAverageRating(course: any): number {
-    // Logic to calculate average rating
-    return 0; // Placeholder value
-  }
-
   deleteInstructor(instructorId: number) {
-    // Logic to delete instructor
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You are about to delete this instructor.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'No, keep it'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Logic to delete instructor
+        Swal.fire('Deleted!', 'Instructor has been deleted.', 'success');
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire('Cancelled', 'Your instructor is safe :)', 'error');
+      }
+    });
   }
 
   suspendInstructor(instructorId: number) {
-    // Logic to suspend instructor
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You are about to suspend this instructor.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, suspend it!',
+      cancelButtonText: 'No, keep it'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Logic to suspend instructor
+        Swal.fire('Suspended!', 'Instructor has been suspended.', 'success');
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire('Cancelled', 'Your instructor is safe :)', 'error');
+      }
+    });
+  }
+
+  reactivateLearner(learnerId: number) {
+    // Logic to reactivate learner
   }
 
   reactivateInstructor(instructorId: number) {
     // Logic to reactivate instructor
   }
 }
+
+

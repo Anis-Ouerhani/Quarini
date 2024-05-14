@@ -27,7 +27,7 @@
                     </td>
                     <td>
                         <ng-container *ngIf="course.completed">
-                        <button (click)="generateCertificate(course)">Available</button>
+                        <button (click)="generateCertificate(course)">Download</button>
                         </ng-container>
                         <ng-container *ngIf="!course.completed">
                         Not Available

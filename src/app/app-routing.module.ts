@@ -33,7 +33,7 @@ const routes: Routes = [
     { path: 'addcontent', component: AddcontentComponent, canActivate: [AuthGuard], data: { roles: ['instructor'] } }, //
     { path: 'login', component: LogComponent },
     { path: 'signup', component: SupComponent },
-    { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard], data: { roles: ['instructor'] } },
+    { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard], data: { roles: ['instructor','learner'] } },
     { path: 'maindash', component: InstMainDashComponent, canActivate: [AuthGuard], data: { roles: ['instructor'] } },
     { path: 'updatecourse', component: UpdateCourseComponent, canActivate: [AuthGuard], data: { roles: ['instructor'] } },
     { path: 'allcourses', component: AllcoursesComponent },
